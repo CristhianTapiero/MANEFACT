@@ -68,7 +68,7 @@ const Page = () => {
             `Teléfono: ${phone}`
         )
         try {
-            const response = await fetch('manefact.vercel.app/api/add-user', {
+            const response = await fetch('/api/add-user', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
