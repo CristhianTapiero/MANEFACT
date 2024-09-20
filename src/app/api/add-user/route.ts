@@ -1,17 +1,18 @@
-import { sql } from '@vercel/postgres';
+import { createClient } from '@vercel/postgres';
 import { NextResponse } from 'next/server';
 const errors = {
     'usuarios_email_key': 'Email already in use',
     'usuarios_pkey': 'ID already in use',
     'usuarios_phone_key': 'Phone already in use'
 };
-
 export const dynamic = 'force-dynamic'
 export async function POST(request: Request) {
-    const { id, name, surname, id_type, email, phone} = await request.json();
+    const sql = createClient()
+    await sql.connect();
+    const { id, name, surname, id_type, email, phone } = await request.json();
     try {
         if (!name || !surname || !id_type || !id || !email || !phone) throw new Error('All fields are required');
-        await sql`
+        await sql.sql`
                  INSERT INTO usuarios (id, name, surname, id_type, email, phone)
                  VALUES (${id}, ${name}, ${surname}, ${id_type}, ${email}, ${phone})
                  RETURNING *
@@ -25,6 +26,8 @@ export async function POST(request: Request) {
             }
         }
         return NextResponse.json({ error }, { status: 500 });
+    } finally {
+        await sql.end();
     }
 }
 export async function GET() {
