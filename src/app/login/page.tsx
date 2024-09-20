@@ -55,6 +55,7 @@ const Page = () => {
 
         if (error) {
             console.error('Error al registrar el usuario. Inténtelo de nuevo.');
+            setState("standby")
             return;
         }
 
@@ -67,7 +68,7 @@ const Page = () => {
             `Teléfono: ${phone}`
         )
         try {
-            const response = await fetch('http://localhost:3000/api/add-user', {
+            const response = await fetch('manefact.vercel.app/api/add-user', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -78,6 +79,7 @@ const Page = () => {
             if (!response.ok) {
                 const errorData = await response.json();
                 setError(errorData.error || 'Error al crear el usuario.');
+                setState("standby")
                 return;
             }
 
@@ -85,6 +87,7 @@ const Page = () => {
             setState("success") // Redirigir a una página de éxito
         } catch {
             setError('Error al conectar con el servidor.');
+            setState("standby")
         }
         //POST({id, name, surname,id_type, email, phone})
 
