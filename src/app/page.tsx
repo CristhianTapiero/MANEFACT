@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { BsInstagram, BsFacebook, BsTwitterX } from "react-icons/bs";
 import Container from "../components/container";
+import { useRouter } from "next/navigation";
+
 type SocialMedia = {
     icon: React.ReactNode;
     name: string;
@@ -19,6 +21,7 @@ const App: React.FC = () => {
     const handleFlip = () => {
         setIsFlipped(!isFlipped);
     }
+    const router = useRouter();
 
     return (
         <div className="flex items-center justify-center w-screen h-screen bg-brand-500">
@@ -29,7 +32,7 @@ const App: React.FC = () => {
                         <p className="font-light max-sm:text-sm w-4/6 text-center">Tus facturas electronicas al alcance de la mano, rápido y sin complique.</p>
                         <div className="flex items-center gap-x-8 mt-6">
                             <button className="btn-outline" onClick={handleFlip}>Sobre Nosotros</button>
-                            <button className="btn-filled">Registrarse</button>
+                            <button className="btn-filled" onClick={()=>router.push("/login")}>Registrarse</button>
                         </div>
                     </div>
                     <div className="back w-full h-full flex justify-center items-center flex-col gap-y-4">
