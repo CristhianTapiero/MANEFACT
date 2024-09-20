@@ -1,4 +1,4 @@
-import { sql } from '@/db';
+import { sql } from '@vercel/postgres';
 import { NextResponse } from 'next/server';
 const errors = {
     'usuarios_email_key': 'Email already in use',
