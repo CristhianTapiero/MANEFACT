@@ -1,0 +1,37 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Github, Linkedin, Facebook, Instagram, Twitter } from "@/assets/SocialMedia";
+
+const crumbs = [
+    { name: "Inicio", href: "/", actual: false },
+    { name: "Sobre Nosotros", href: "/sobre-nosotros", actual: false },
+    { name: "Contáctanos", href: "/sobre-nosotros/contactanos", actual: true },
+];
+---
+
+<Layout title="Contáctanos" crumbs={crumbs}>
+    <section class="section py-4 flex flex-col">
+        <h1>Contáctanos</h1>
+        <div class="w-11/12 flex self-center flex-grow items-center gap-x-4">
+            <div class="flex flex-col w-1/2 h-full px-4 py-2">
+                <h2 class="self-center text-2xl font-semibold">Siguenos en:</h2>
+                <div class="flex gap-y-4 mt-12 flex-col flex-grow items-center">
+                    <Github url="https://github.com" username="MANEFACT" />
+                    <Linkedin url="https://linkedin.com" username="MANEFACT" />
+                    <Facebook url="https://facebook.com" username="MANEFACT" />
+                    <Instagram url="https://instagram.com" username="@MANEFACT" />
+                    <Twitter url="https://twitter.com" username="MANEFACT" />
+                </div>
+            </div>
+            <div class="w-1/2 px-4 py-2 h-full flex flex-col">
+                <h2 class="text-2xl self-center font-semibold text-center">O manda tus solicitudes, preguntas o reclamos aquí:</h2>
+                <form class="flex flex-col mt-10 gap-y-2">
+                    <input type="text" placeholder="Nombre" class="input">
+                    <input type="email" placeholder="Correo" class="input">
+                    <textarea placeholder="Mensaje" class="input h-52 border-2 border-contrast"></textarea>
+                    <button class="px-4 py-2 bg-contrast text-gray-100 rounded-md bg- hover:bg-contrast/90 self-end mt-4">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</Layout>

@@ -1,50 +1,46 @@
 ---
+import Header from '@/assets/Header.astro';
+import Footer from '@/assets/Footer.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
 interface Props {
 	title: string;
+	crumbs: { name: string; href: string; actual: boolean }[];
 }
 
-const { title } = Astro.props;
+const { title, crumbs } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" 
+		content="MANEFACT, es un proyecto para la Universidad Libre creado por Cristhian David Tapiero Padilla, 
+		en este proyecto se espera, como fase inicial, plantear la idea para generar soluciones digitales relacionadas 
+		a la facturación electronica con el fin de optimizar procesos y ayudar a emprendimientos y pequeñas empresas a 
+		centralizar sus movimientos para facilitar y automatizar la declaración de impuestos." />
+		<meta name="robots" content="index, follow" />
+		<meta name="keywords" content="facturación electrónica, optimización de procesos, emprendimientos, pequeñas empresas, declaración de impuestos" />
+		<meta property="og:title" content="MANEFACT - {title}" />
+		<meta property="og:description" content="MANEFACT, es un proyecto para la Universidad Libre creado por Cristhian David Tapiero Padilla, en este proyecto se espera, como fase inicial, plantear la idea para generar soluciones digitales relacionadas a la facturación electronica con el fin de optimizar procesos y ayudar a emprendimientos y pequeñas empresas a centralizar sus movimientos para facilitar y automatizar la declaración de impuestos." />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="{Astro.url}" />
+		<meta property="og:image" content="/logo.webp" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="MANEFACT - {title}" />
+		<meta name="twitter:description" content="MANEFACT, es un proyecto para la Universidad Libre creado por Cristhian David Tapiero Padilla, en este proyecto se espera, como fase inicial, plantear la idea para generar soluciones digitales relacionadas a la facturación electronica con el fin de optimizar procesos y ayudar a emprendimientos y pequeñas empresas a centralizar sus movimientos para facilitar y automatizar la declaración de impuestos." />
+		<meta name="twitter:image" content="/logo.webp" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/logo.webp" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<title>MANEFACT - {title}</title>
 	</head>
 	<body>
-		<slot />
+		<div class="main-container bg-text">
+			<Header />
+			<Breadcrumb items={crumbs} />
+			<slot />
+			<Footer />
+		</div>
 	</body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>

@@ -1,0 +1,25 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+const crumbs = [
+    { name: "Inicio", href: "/", actual: false },
+    { name: "Sobre Nosotros", href: "/sobre-nosotros", actual: true },
+];
+---
+<Layout title="Sobre Nosotros" crumbs={crumbs}>
+    <section class="section py-4 flex flex-col">
+        <h1>Sobre Nosotros</h1>
+        <p>En esta sección encontrarás información sobre nuestra empresa.</p>
+        <div class="flex flex-col w-10/12 self-center gap-y-4 mt-5">
+            <div class="flex flex-col gap-y-2 max-w-2xl">
+                <h2 class="text-xl font-semibold">Misión</h2>
+                <p class="w-full text-balance">Facilitar el proceso de facturación electrónica en Colombia mediante un sistema confiable, seguro y adaptado a las necesidades locales. A través de tecnología innovadora y un enfoque en la normativa colombiana, buscamos optimizar los procesos administrativos de pequeñas y medianas empresas, comenzando por la localidad de Puente Aranda en Bogotá. Nuestro compromiso es apoyar la digitalización de las empresas, mejorando su eficiencia operativa y asegurando el cumplimiento legal de manera accesible y transparente.</p>
+            </div>
+            <div class="flex flex-col gap-y-2 max-w-2xl self-end">
+                <h2 class="text-xl font-semibold self-end">Visión</h2>
+                <p class="w-full text-right text-balance">Ser el referente líder en servicios de facturación electrónica en Colombia, reconocido por nuestra innovación, seguridad y compromiso con la excelencia. Aspiramos a expandir nuestra cobertura a nivel nacional, facilitando la transición hacia un entorno digital en todas las empresas del país, con un enfoque en la simplicidad y el cumplimiento normativo. Queremos ser impulsores del desarrollo tecnológico en el ámbito financiero, promoviendo la sostenibilidad y eficiencia en cada operación.</p>
+            </div>
+        </div>
+        <a href="/sobre-nosotros/contactanos" class="px-4 py-2 bg-contrast text-white rounded-md hover:bg-contrast/90 inline-flex mt-10 mx-auto">Contactanos</a>
+    </section>
+</Layout>

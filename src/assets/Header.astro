@@ -1,0 +1,26 @@
+---
+import '@/styles/globals.css'
+---
+<header class="w-full h-fit flex justify-between border-b-2 border-b-contrast">
+    <a href="/" class="font-bruno py-2 pl-4">MANEFACT</a>
+    <nav class="flex">
+        <div class="relative group hover:bg-bgDarker py-2 transition-colors" style="position: relative;">
+            <a href="/productos" class="px-2 hover:bg-bgDarker py-2 transition-colors">Productos</a>
+            <div class="absolute hidden group-hover:flex flex-col bg-text top-full">
+                <a href="/productos/pre-registro" class="block px-4 py-2 hover:bg-bgDarker text-nowrap">Pre-registro</a>
+            </div>
+        </div>
+        <div class="relative group hover:bg-bgDarker py-2 transition-colors" style="position: relative;">
+            <a href="/historia" class="px-2 py-2 transition-colors">Historia</a>
+            <div class="absolute hidden group-hover:flex flex-col bg-text left-0  top-full">
+                <a href="/historia/contribuidores" class="block px-4 py-2 hover:bg-bgDarker text-nowrap">Contribuidores</a>
+            </div>
+        </div>
+        <div class="relative group hover:bg-bgDarker py-2 transition-colors" style="position: relative;">
+            <a href="/sobre-nosotros" class="px-2 py-2 transition-colors">Sobre Nosotros</a>
+            <div class="absolute hidden group-hover:flex flex-col bg-text top-full right-auto left-0">
+                <a href="/sobre-nosotros/contactanos" class="block px-4 py-2 hover:bg-bgDarker text-nowrap">Contactanos</a>
+            </div>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,30 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Card from "@/components/Card.tsx";
+const crumbs = [
+    { name: "Inicio", href: "/", actual: false },
+    { name: "Productos", href: "/productos", actual: true },
+];
+
+const Cards = [
+    {
+        title: "Manilla RFID para facturación electrónica",
+        description: "Gracias a la técnologia RFID, podrás facturar de manera más rápida y segura.",
+        price: 90000,
+        image: "./images/manilla.webp",
+    }
+];
+
+---
+
+<Layout title="Productos" crumbs={crumbs}>
+    <section class="section py-4">
+        <h1>Productos</h1>
+        <p>En esta sección encontrarás todos nuestros productos.</p>
+        <div class="flex flex-wrap items-center justify-center w-full gap-x-4 mt-5 gap-y-2">
+            {Cards.map((card) => (
+                <Card {...card} />
+            ))}
+        </div>
+    </section>
+</Layout>

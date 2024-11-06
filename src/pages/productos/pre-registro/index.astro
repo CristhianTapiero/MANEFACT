@@ -1,0 +1,17 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Form from "@/components/Form";
+
+const crumbs = [
+    { name: "Inicio", href: "/", actual: false },
+    { name: "Productos", href: "/productos", actual: false },
+    { name: "Pre-registro", href: "/productos/pre-registro", actual: true },
+];
+---
+<Layout title="Pre-registro" crumbs={crumbs}>
+    <section class="section py-4 flex flex-col">
+        <h1>Pre-registro</h1>
+        <p>En esta sección podrás pre-registrarte para obtener información sobre nuestros productos.</p>
+        <Form />
+    </section>
+</Layout>

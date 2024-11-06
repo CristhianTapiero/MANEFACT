@@ -1,0 +1,17 @@
+---
+import Layout from "@/layouts/Layout.astro"; 
+import Timeline from "@/components/Timeline.astro";
+
+const crumbs = [
+    { name: "Inicio", href: "/", actual: false },
+    { name: "Historia", href: "/historia", actual: true },
+];
+---
+<Layout title="Historia" crumbs={crumbs}>
+    <section class="section py-4 flex flex-col">
+        <h1>Historia</h1>
+        <p>En esta sección encontrarás la historia de nuestra empresa.</p>
+        <Timeline />
+        <a href="/historia/contribuidores" class="px-4 py-2 bg-contrast text-white rounded-md hover:bg-contrast/90 inline-flex mt-10 mx-auto">Contribuidores</a>
+    </section>
+</Layout>
