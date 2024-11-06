@@ -19,13 +19,13 @@ const { items } = Astro.props;
                 {item.actual ? (
                     <span class="text-contrast underline">{item.name}</span>
                 ) : (
-                    <a href={item.href} class="text-gray-500 hover:underline">
+                    <a href={item.href} class="text-contrast/90 hover:underline">
                         {item.name}
                     </a>
                 )}
                 {index < items.length - 1 && (
                     <svg
-                        class="w-3 h-3 text-gray-500"
+                        class="w-3 h-3 text-contrast"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
